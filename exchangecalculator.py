@@ -15,16 +15,22 @@ if response.ok == True :
 
     rates = data["rates"]
 
-    nameList = ""
+    nameList = []
 
     for rate in rates :
         # print(rate["currency"], rate["code"], rate["mid"])
         # print(rate["code"])
-        nameList = ("Kraj : " + str(rate["currency"]) + "Symbol : " + rate["code"])
+        nameList = rate["currency"], rate["code"]
         print(nameList)
 
         # for v in rate["code"] :
             # nameList = (nameList + str(v))
             # print(rate["code"])
+
+    codes = rate["code"]
+    for code in codes :
+        print(code)
+    
+
 
         
