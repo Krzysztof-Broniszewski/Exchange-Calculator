@@ -1,36 +1,28 @@
 import requests
 import json
 
-response = requests.get("https://api.nbp.pl/api/exchangerates/tables/a?format=json")
+url = "https://api.nbp.pl/api/exchangerates/tables/a?format=json"
+response = requests.get(url, timeout=10)
 
-if response.ok == True :
+if response.ok:
     data = response.json()[0]
-    # print(data)
 
     table = data["table"]
     no = data["no"]
     effectiveDate = data["effectiveDate"]
 
-    # print("Exchange rates: ", table, no, effectiveDate)
-
     rates = data["rates"]
 
     nameList = []
+    codes = []
 
-    for rate in rates :
-        # print(rate["currency"], rate["code"], rate["mid"])
-        # print(rate["code"])
-        nameList = rate["currency"], rate["code"]
-        print(nameList)
+    for rate in rates:
+        # dodajemy (currency, code) do listy
+        nameList.append((rate["currency"], rate["code"]))
+        print((rate["currency"], rate["code"]))
+        # zbieramy same kody
+        codes.append(rate["code"])
 
-        # for v in rate["code"] :
-            # nameList = (nameList + str(v))
-            # print(rate["code"])
-
-    codes = rate["code"]
-    for code in codes :
-        print(code)
-    
-
-
-        
+    print("\nWszystkie kody:", codes)
+else:
+    print("Błąd HTTP:", response.status_code, response.text)
