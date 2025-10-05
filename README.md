@@ -1,51 +1,28 @@
 # NBP Exchange Rates — Table A
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/<USER>/<REPO>/blob/main/notebooks/01_main.ipynb)
-&nbsp;|&nbsp; [Polska wersja](./README.pl.md)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1oI--Yru8go7zGO3L3JM85eAplq3DEt01?usp=drive_link)
 
-A compact notebook that fetches daily exchange rates from the National Bank of Poland (NBP) **Table A** API and prints currency codes and names. Minimal by design for quick review and execution.
+A compact notebook that fetches daily exchange rates from the National Bank of Poland (NBP) **Table A** public API and lists currency names with ISO codes. Minimal by design for quick review and execution.
 
 ---
 
 ## Run in Colab
 1. Click the **Open in Colab** badge above.  
-2. **Runtime → Run all**.  
-> Note: Colab already includes `requests`, so no extra setup is needed there.
+2. Go to **Runtime → Run all**.
+
+> Note: Colab usually ships with `requests`, so no extra setup is needed there.
 
 ## Run locally
 ```bash
-# create a clean env (conda/mamba)
+# create a clean env (conda/mamba recommended)
 mamba create -n nbp -c conda-forge python=3.11
 mamba activate nbp
 
-# install deps
-pip install -r requirements.txt
+# install dependencies
+pip install -r requirements.txt    # contains: requests>=2.32
 
-# start Jupyter
-jupyter lab
+# or quickly:
+# pip install "requests>=2.32"
 
-# Kursy walut NBP — Tabela A
-
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/<USER>/<REPO>/blob/main/notebooks/01_main.ipynb)
-&nbsp;|&nbsp; [English version](./README.md)
-
-Zwięzły notatnik pobierający dzienne kursy z publicznego API NBP (**Tabela A**) oraz wypisujący kody i nazwy walut. Minimalny, aby łatwo go przejrzeć i uruchomić.
-
----
-
-## Uruchom w Colabie
-1. Kliknij badge **Open in Colab** powyżej.  
-2. **Runtime → Run all**.  
-> Uwaga: w Colabie `requests` jest zazwyczaj już dostępne, więc nie trzeba nic instalować.
-
-## Uruchom lokalnie
-```bash
-# czyste środowisko (conda/mamba)
-mamba create -n nbp -c conda-forge python=3.11
-mamba activate nbp
-
-# zależności
-pip install -r requirements.txt
-
-# start Jupytera
+# open the notebook
 jupyter lab
